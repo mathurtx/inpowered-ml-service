@@ -23,11 +23,11 @@ public class RegressionController {
 	@Autowired
 	private RegressionCountService regressionCountService;
 	
-	@RequestMapping(value="/prediction/{link}/{title}/{author_actor_id}/{pub_date}",method=RequestMethod.GET)
+	@RequestMapping(value="/prediction/{link}/{title}/{summary}/{author_actor_id}/{pub_date}",method=RequestMethod.GET)
 	@ResponseStatus(HttpStatus.OK)
-	public @ResponseBody Integer getViewCount(@PathVariable String link,@PathVariable String title, @PathVariable String author_actor_id, @PathVariable String pub_date) throws Exception{
+	public @ResponseBody Integer getViewCount(@PathVariable String link,@PathVariable String title, @PathVariable String summary, @PathVariable String author_actor_id, @PathVariable String pub_date) throws Exception{
 		LOGGER.info("Sending request to get view count");
-		return regressionCountService.getViewCount(link, title, author_actor_id, pub_date);
+		return regressionCountService.getViewCount(link, title, summary, author_actor_id, pub_date);
 	}
 	
 }
