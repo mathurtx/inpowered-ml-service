@@ -10,7 +10,6 @@ public class RegressionCountServiceImpl implements RegressionCountService {
 
 	public Integer getViewCount(String link, String title, String summary, String authorActorId, String pubDate) throws Exception {
 		PythonInterpreter interpreter = new PythonInterpreter();
-		//interpreter.set("myvariable", 21);
 		interpreter.execfile("//Users/mathurtx/Documents/inpowered/Prediction.py");
 		PyObject getPrediction = interpreter.get("predictor");
 		PyObject result = getPrediction.__call__(new PyString(authorActorId),new PyString(summary));
